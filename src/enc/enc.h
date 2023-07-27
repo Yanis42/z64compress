@@ -55,5 +55,14 @@ int aplenc(
 	, void *_ctx
 );
 
+int
+lz4enc(
+	void *_src
+	, unsigned src_sz
+	, void *_dst
+	, unsigned *dst_sz
+	, void *_ctx
+);
+
 #endif /* Z64COMPRESS_ENC_H_INCLUDED */
 

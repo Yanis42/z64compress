@@ -478,6 +478,14 @@ static const struct encoder *encoder(const char *name)
 		
 		return &aplib;
 	}
+	else if (!strcmp(name, "lz4"))
+	{
+		static const struct encoder lz4 = {
+			.encfunc = lz4enc
+		};
+
+		return &lz4;
+	}
 	else
 		die("unknown compression codec '%s'", name);
 	
