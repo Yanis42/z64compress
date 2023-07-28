@@ -1,7 +1,7 @@
-#include <stdio.h>
 #include <string.h>
-#include <stdlib.h>
-#include "lz4/lz4hc.h"
+
+#define LZ4_DISTANCE_MAX 16384
+#include "./lz4/lz4hc.h"
 
 int
 lz4enc(
@@ -31,7 +31,7 @@ lz4enc(
 	compress_bound = LZ4_COMPRESSBOUND(src_sz);
 	result_sz = LZ4_compress_HC(src, dst + lenHeader, src_sz, compress_bound, LZ4HC_CLEVEL_MAX);
 
-	if (!result_sz || result_sz <= compress_bound)
+	if (!result_sz || !(result_sz <= compress_bound))
 		return 1;
 
 	// save result_sz

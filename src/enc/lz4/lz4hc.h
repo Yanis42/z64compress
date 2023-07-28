@@ -39,8 +39,8 @@ extern "C" {
 #endif
 
 /* --- Dependency --- */
-/* note : lz4hc requires lz4std.h/lz4std.c for compilation */
-#include "lz4std.h"   /* stddef, LZ4LIB_API, LZ4_DEPRECATED */
+/* note : lz4hc requires lz4.h/lz4.c for compilation */
+#include "lz4.h"   /* stddef, LZ4LIB_API, LZ4_DEPRECATED */
 
 
 /* --- Useful constants --- */
@@ -312,7 +312,7 @@ LZ4LIB_API void LZ4_resetStreamHC (LZ4_streamHC_t* streamHCPtr, int compressionL
 #define LZ4_HC_SLO_098092834
 
 #define LZ4_STATIC_LINKING_ONLY   /* LZ4LIB_STATIC_API */
-#include "lz4std.h"
+#include "lz4.h"
 
 #if defined (__cplusplus)
 extern "C" {
