@@ -18,7 +18,7 @@ lz4enc(
 	int compress_bound = 0;
 	
 	extern int g_hlen; /* header length */
-	short lenHeader = g_hlen + 4;
+	short lenHeader = g_hlen + 4 + 4;
 	memset(dst, 0, lenHeader);
 	memcpy(dst, "LZ40", 4);
 
@@ -39,6 +39,9 @@ lz4enc(
 	dst[9] 	= (result_sz >> 16);
 	dst[10] = (result_sz >>  8);
 	dst[11] = (result_sz >>  0);
+
+	// align
+	dst[12] = dst[13] = dst[14] = dst[15] = 0;
 
 	*dst_sz = result_sz + lenHeader;
 
