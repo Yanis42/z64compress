@@ -1,3 +1,5 @@
+/* adapted from libdragon */
+
 #include <string.h>
 #include <stdbool.h>
 #include <assert.h>
